@@ -4,12 +4,12 @@
 > 
 > graph LR
 >  A[Text] --> B[BERT]
->  B --> C[CLS]
->  D[Vector a] --> E[Concatenate]
+>  B --> C["[CLS]" ]
+>  D["logval+12 (a)"] --> E(Concatenate)
 >  C --> E
 >  E --> F[MLP]
->  F --> G[Predicted b]
->  H[True b] --> I[Loss]
+>  F --> G["Predicted logval+12 (b)"]
+>  H["True logval+12 (b)"] --> I[Loss]
 >  G --> I
 >  I -.-> B
 >  I -.-> F
@@ -25,11 +25,11 @@
 > graph LR
 >  A[Text] --> B[Fine-Tuned BERT]
 >  B --> C[CLS]
->  D[Vector a] --> E[Concatenate]
+>  D["logval-12 (a)"] --> E(Concatenate)
 >  C --> E
 >  
 >  E --> G[XGBoost Model]
->  G --> H[Predicted b]
+>  G --> H["Predicted log+12 (b)"]
 > ```
 
 ### Architecture Description
